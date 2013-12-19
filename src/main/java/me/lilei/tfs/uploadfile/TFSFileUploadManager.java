@@ -1,21 +1,6 @@
 package me.lilei.tfs.uploadfile;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintWriter;
-import java.nio.file.Files;
-import java.nio.file.FileVisitor;
-import java.nio.file.FileVisitResult;
-import java.nio.file.Path;
-import java.nio.file.Paths; 
-import java.nio.file.SimpleFileVisitor;
-import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -23,8 +8,6 @@ import org.slf4j.LoggerFactory;
 
 import me.lilei.tfs.info.model.EnvironmentInfo;
 import me.lilei.tfs.info.model.EnvironmentInfoMaker;
-
-import com.taobao.common.tfs.DefaultTfsManager;
 
 public class TFSFileUploadManager {
 
@@ -50,11 +33,6 @@ public class TFSFileUploadManager {
 		
 		TFSResourcesFactory.blanceTFSResources(config, pathList);
 		
-/*		//TFS资源获取并执行上传
-		TFSResources tfs = new TFSResources(config);
-		tfs.uploadResource2TFS(pathList);
-		tfs.destoryTFSResource();*/
-        
 		System.out.println("end!");
 	}
 	
