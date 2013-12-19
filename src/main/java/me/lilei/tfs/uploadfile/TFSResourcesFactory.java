@@ -28,19 +28,19 @@ public class TFSResourcesFactory {
 			int diffCount = size / iThreadCount;
 			final CountDownLatch latch = new CountDownLatch(iThreadCount);
 			final ExecutorService exec = Executors.newCachedThreadPool();
-			final TFSResources tfsrHook;
+			
 			for(int i = 0; i < iThreadCount; i++ ){
 				TFSResources tfsr = new TFSResources(config);
 				List<String> subList = null;
 				if((iThreadCount - 1) == i){
 					
 					subList = new ArrayList<String>(size - (i) * diffCount);
-					subList.addAll(pathList.subList((i) * diffCount, size - 1));
+					subList.addAll(pathList.subList((i) * diffCount, size));
 					TFSResourcesFactory.clearTFSManager(exec,latch,tfsr);
 				}else{
 					
 					subList = new ArrayList<String>(diffCount);
-					subList.addAll(pathList.subList((i)*diffCount, (i+1)*diffCount - 1));
+					subList.addAll(pathList.subList((i)*diffCount, (i+1)*diffCount));
 				}
 				tfsr.setResourcePathList(subList);
 				tfsr.setLatch(latch);
@@ -59,18 +59,15 @@ public class TFSResourcesFactory {
 				
 				try {
 					latch.await();
-					logger.info("所有任务线程均已完成，开始销毁TFS资源管理器。");
-					//
 					tfsr.destoryTFSResource();
+					logger.info("所有任务线程均已完成，销毁TFS资源管理器完成。");
 					exec.shutdownNow();
 				} catch (InterruptedException e) {
 					
 					e.printStackTrace();
 					logger.error(e.getMessage());
 				}
-				
 			}
-			
 		});
 	}
 }
