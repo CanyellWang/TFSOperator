@@ -9,16 +9,16 @@
 	
 	<context:annotation-config/>
 	<context:component-scan base-package="me.lilei.tfs" />
-    <beans:bean id="propertyConfigurer" 
+    <bean id="propertyConfigurer" 
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <beans:property name="locations">
-            <beans:list>
-                <beans:value>classpath://../conf/db.properties</beans:value>
-<!--                 <beans:value>classpath://../conf/tfs.xml</beans:value> -->
-<!--                 <beans:value>classpath://../conf/mail.properties</beans:value> -->
-            </beans:list>
-        </beans:property>
-    </beans:bean>
+        <property name="locations">
+            <list>
+                <value>conf/db.properties</value>
+<!--                 <value>conf/tfs.xml</value> -->
+<!--                 <value>conf/mail.properties</value> -->
+            </list>
+        </property>
+    </bean>
     
     <!-- DB 配置  开始 -->
    <!--  <context:property-placeholder location="WEB-INF/spring/db.properties" ignore-unresolvable="true" /> --> 
