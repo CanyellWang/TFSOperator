@@ -3,6 +3,7 @@ package me.lilei.tfs.uploadfile;
 import java.util.List;
 import java.util.RandomAccess;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.CyclicBarrier;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +16,8 @@ public class TFSResources implements Runnable{
 			.getLogger(TFSResources.class);
 
 	private ConfigResources config = null;
+	
+	private CyclicBarrier barrier = null;
 
 	private DefaultTfsManager tfsManager = null;
 	
