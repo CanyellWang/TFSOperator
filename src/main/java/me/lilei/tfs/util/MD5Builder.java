@@ -25,7 +25,7 @@ public class MD5Builder {
 /*	MessageDigestAdapter adapter = new MessageDigestAdapter("MD5");
 	String md5str = adapter.digest(TARGET);*/
 	
-	protected static char hexDigits[] = { '0', '1', '2', '3', '4', '5', '6','7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
+	protected static final char hexDigits[] = { '0', '1', '2', '3', '4', '5', '6','7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
 	
 	protected static MessageDigest messageDigest = null;
 	static {
@@ -77,7 +77,7 @@ public class MD5Builder {
 	
 	public static class MD5File{
 		
-		public static String md5(File f) {
+/*		public static String md5(File f) {
 			FileInputStream fis = null;
 		
 				fis = new FileInputStream(f);
@@ -89,14 +89,14 @@ public class MD5Builder {
 
 				return new String(Hex.encodeHex(messageDigest.digest()));
 
-		}
+		}*/
 		
 		public static String getFileMD5String(File file) throws IOException {
 			FileInputStream in = new FileInputStream(file);
 			FileChannel ch = in.getChannel();
 			
 			//700000000 bytes are about 670M
-			int maxSize=700000000;
+			int maxSize=1024*1024;
 			
 			long startPosition=0L;
 			long step=file.length()/maxSize;
