@@ -2,9 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<name>TFSOperator</name>
+	<name>Test TFS</name>
 	<groupId>me.lilei.tfs</groupId>
-	<artifactId>TFSOperator</artifactId>
+	<artifactId>testTFSReadAndWrite</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<properties>
@@ -12,7 +12,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<org.springframework-version>3.0.6.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.6.9</org.aspectj-version>
-		<org.slf4j-version>1.5.10</org.slf4j-version>
+		<org.slf4j-version>1.7.5</org.slf4j-version>
 		<mybatis-spring-version>1.1.0</mybatis-spring-version>
 		<mybatis-version>3.2.3</mybatis-version>
 	</properties>
@@ -61,7 +61,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<dependency>
+<!-- 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>1.4.3</version>
@@ -72,7 +72,7 @@
 					<artifactId>log4j</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>commons-lang</groupId>
 			<artifactId>commons-lang</artifactId>
@@ -123,13 +123,11 @@
 			<groupId>org.slf4j</groupId>
 			<artifactId>jcl-over-slf4j</artifactId>
 			<version>${org.slf4j-version}</version>
-			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>${org.slf4j-version}</version>
-			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax.mail</groupId>
@@ -165,15 +163,22 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.27</version>
 		</dependency>
+		<!-- <dependency> <groupId>com.microsoft.sqlserver.jdbc</groupId> <artifactId>sqljdbc4</artifactId> 
+			<version>4.0</version> </dependency> -->
 		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
 			<version>1.4</version>
 		</dependency>
+		<!-- <dependency> <groupId>cglib</groupId> <artifactId>cglib-nodep</artifactId> 
+			<version>2.2.2</version> </dependency> -->
+		<!-- <dependency> <groupId>joda-time</groupId> <artifactId>joda-time</artifactId> 
+			<version>2.1</version> </dependency> -->
 		<dependency>
 			<groupId>commons-codec</groupId>
 			<artifactId>commons-codec</artifactId>
 			<version>1.8</version>
 		</dependency>
+
 	</dependencies>
 </project>
