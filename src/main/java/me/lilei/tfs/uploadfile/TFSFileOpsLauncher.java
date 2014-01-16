@@ -35,14 +35,14 @@ public class TFSFileOpsLauncher {
 		//TODO:工作线程全部完成时候通知loaclRes线程继续扫描，并重复以上步骤
 		
 		//本地上传文件位置取得
-		List<String> path = new ArrayList<String>(1);
-		path.add("/home/jeffrey/TFS-test");
+		//List<String> path = new ArrayList<String>(1);
+		//path.add("/home/jeffrey/TFS-test");
 		//path.add("/home/jeffrey/TFS-test/20130614/籍永丰/09");
-		LocalResources lr = new LocalResources(config);
-		lr.getAllFileList(path);
-		List<String> pathList = lr.getFileList();
+		//LocalResources lr = new LocalResources(config);
+		//lr.getAllFileList(path);
+		//List<String> pathList = lr.getFileList();
 		
-		TFSResourcesFactory.blanceTFSResourcesScheduler(config, pathList);
+		//TFSResourcesFactory.blanceTFSResourcesScheduler(config, pathList);
 		
 		System.out.println("end!");
 	}
