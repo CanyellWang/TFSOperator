@@ -1,10 +1,15 @@
 package me.lilei.tfs.uploadfile;
 
+import javax.annotation.Resource;
+
+import me.lilei.tfs.config.model.TFSConfig;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
+
 
 public class ConfigResources {
 	
@@ -30,6 +35,9 @@ public class ConfigResources {
 	public int getTfsDSThreadCount() {
 		return tfsDSThreadCount;
 	}
+	
+	@Resource(name="tfsConfig")
+	private TFSConfig tfsc;
 
 	public ConfigResources(){
 		
@@ -42,7 +50,7 @@ public class ConfigResources {
 	private void loadConfig(){
 		logger.debug(this.getClass().getResource("/").getPath());
 		loadSpringConfig();
-		loadTFSConfig();
+		//loadTFSConfig();
 		logger.debug("Config loaded from file!");
 	}
 
@@ -55,6 +63,7 @@ public class ConfigResources {
 		//String[] locations = {"spring/appConfig/application-context.xml","spring/appConfig/application-mail.xml" };
 		@SuppressWarnings("unused")
 		ApplicationContext act = new FileSystemXmlApplicationContext(locations);
+		
 	}
 	
 	/**
@@ -63,5 +72,6 @@ public class ConfigResources {
 	private void loadTFSConfig(){
 		//TODO:从配置文件中或从远程服务器中读取TFS配置
 		tfsDSThreadCount = 4;
+		//System.out.print(tfsc.NAME_SERVER_ADDRESS);
 	}
 }
