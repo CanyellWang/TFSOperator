@@ -45,6 +45,11 @@
   		<property name="dataSource" ref="dataSourceMySql"/>
 	</bean>
 	<tx:annotation-driven transaction-manager="txManager"/>
+	
+	<bean id="tfsConfig" class="me.lilei.tfs.config.model.TFSConfig" destroy-method="close">
+        <property name="driverClassName" value="${tfsconfig.nsip}"/>
+        <property name="url" value="${mysql.url}"/>
+    </bean>
     
 <!--     <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
         <property name="host" value=""/>
