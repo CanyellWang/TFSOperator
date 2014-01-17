@@ -9,13 +9,12 @@
 	
 	<context:annotation-config/>
 	<context:component-scan base-package="me.lilei.tfs" />
+	
     <bean id="propertyConfigurer" 
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
-                <value>conf/db.properties</value>
-<!--                 <value>conf/tfs.xml</value> -->
-<!--                 <value>conf/mail.properties</value> -->
+                <value>conf/dbConfigurationServer.properties</value>
             </list>
         </property>
     </bean>
@@ -45,11 +44,6 @@
   		<property name="dataSource" ref="dataSourceMySql"/>
 	</bean>
 	<tx:annotation-driven transaction-manager="txManager"/>
-	
-	<bean id="tfsConfig" class="me.lilei.tfs.config.model.TFSConfig" destroy-method="close">
-        <property name="driverClassName" value="${tfsconfig.nsip}"/>
-        <property name="url" value="${mysql.url}"/>
-    </bean>
     
 <!--     <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
         <property name="host" value=""/>
